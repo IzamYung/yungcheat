@@ -70,6 +70,7 @@ function initTyping() {
     } else {
         clearInterval(timer);
         inpField.value = "";
+        saveScore(wpmTag.innerText);
     }
 }
 
@@ -81,8 +82,8 @@ function initTimer() {
         wpmTag.innerText = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
     } else {
         clearInterval(timer);
-        alert("TIME OUT!!");
-        
+        window.alert("TIME OUT!!");
+        saveScore(wpmTag.innerText);
     }
 }
 
@@ -95,6 +96,25 @@ function resetGame() {
     timeTag.innerText = timeLeft;
     wpmTag.innerText = 0;
     mistakeTag.innerText = 0;
+}
+
+function saveScore(wpm) {
+    let name = prompt("Enter your name:");
+    if (!name) return;
+
+    let scores = JSON.parse(localStorage.getItem("scores")) || [];
+    scores.push({ name, wpm: parseInt(wpm) });
+    scores.sort((a, b) => b.wpm - a.wpm);
+    scores = scores.slice(0, 10);
+    localStorage.setItem("scores", JSON.stringify(scores));
+    displayScores();
+    resetGame();
+}
+
+function displayScores() {
+    let scores = JSON.parse(localStorage.getItem("scores")) || [];
+    let scoreString = scores.map(score => `Name: ${score.name}, WPM: ${score.wpm}`).join("\n");
+    alert(scoreString || "No scores available.");
 }
 
 loadParagraph();
