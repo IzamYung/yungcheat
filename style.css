@@ -11,27 +11,26 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: orange;
-}
-
-#paragraph{
-    color: black;
+    background-color: whitesmoke;
 }
 
 .result-details{
-    color: black;
+    color: white;
 }
 
-::selection{
+.wrapper h1{
+    padding-bottom: 30px;
     color: white;
-    background-color: blue;
 }
 
 .wrapper{
     width: 700px;
     padding: 35px;
-    background-color: peachpuff;
+    background-color: black;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapper .input-field{
@@ -43,12 +42,12 @@ body{
 .wrapper .content-box{
     padding: 13px 20px 0;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid ghostwhite;
 }
 
 .content-box .typing-text{
-    overflow: hidden;
-    max-height: 256px;
+    overflow: visible;
+    max-height: auto;
 }
 
 .typing-text::-webkit-scrollbar{
@@ -60,6 +59,7 @@ body{
     text-align: justify;
     letter-spacing: 1px;
     word-break: break-all;
+    color: white;
 }
 
 .typing-text p span{
@@ -67,12 +67,12 @@ body{
 }
 
 .typing-text p span.correct{
-    color: green;
+    color: greenyellow;
 }
 
 .typing-text p span.incorrect{
-    color: red;
-    border-radius: 4px;
+    color: lightcoral;
+    background-color: lightpink;
 }
 
 .typing-text p span.active::before{
@@ -84,7 +84,7 @@ body{
     left: 0;
     opacity: 0;
     border: 5px;
-    background-color: aqua;
+    background-color: greenyellow;
     animation: blink 1s ease-in-out infinite;
 }
 
@@ -101,7 +101,7 @@ body{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    border-top: 3px solid black;
+    border-top: 3px solid ghostwhite;
 }
 
 .content button{
@@ -114,17 +114,12 @@ body{
     font-weight: 600;
     cursor: pointer;
     border-radius: 15px;
-    border: 3px solid black;
-    background: none;
+    background-color: whitesmoke;
     transition: transform 0.2s ease;
 }
 
 .content button:active{
     transform: scale(0.89);
-}
-
-.content button:hover{
-    background-color: white;
 }
 
 .content .result-details{
@@ -145,7 +140,7 @@ body{
 
 .result-details li:not(:first-child){
     padding-left: 22px;
-    border-left: 2px solid gray;
+    border-left: 2px solid ghostwhite;
 }
 
 .result-details li p{
